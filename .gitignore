@@ -17,6 +17,7 @@
 /build
 /.gradle
 *.keystore
+*.jks
 *.sh
 */build
 local.properties
