@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#13baf9</color>
+    <color name="colorPrimaryDark">#1d8af2</color>
+    <color name="colorPrimaryPress">#8013baf9</color>
+    <color name="colorPrimaryDarkPress">#801d8af2</color>
+    <color name="colorAccent">#e5be57</color>
+    <color name="colorAccent_t66">#66e5be57</color>
+
+
+    <color name="default_bg">#fff3f7f9</color>
+    <color name="default_bg_dialog">#f5f5f5</color>
+
+    <color name="solar_background">#009988</color>
+    <!--PureColor-->
+    <color name="transparent">#00000000</color>
+    <color name="blue">#318BF8</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="red_alarm">#c01b09</color>
+    <color name="blue_alarm">#318bf8</color>
+    <color name="yellow_alarm">#d1ca13</color>
+    <color name="orange_alarm">#d76801</color>
+
+    <!--themeColor-->
+    <color name="pink">#FFC0CB</color>  <!--少女粉-->
+    <color name="Violet">#EE82EE</color>  <!--紫罗兰-->
+    <color name="RoyalBlue">#4169E1</color>  <!--宝蓝-->
+    <color name="DarkOrange">#FF8C00</color>  <!--橙色-->
+
+    <!--color-->
+    <color name="setting_bg">#3D3E47</color>
+    <color name="transparency">#00000000</color><!--透明色-->
+
+    <!--绘制图表的颜色-->
+    <color name="lineCard_bg">#f0f0f0</color>
+    <color name="lineCard_title">#727272</color>
+    <color name="lineCard_line">#3f7178</color>
+    <color name="lineCard_fill">#8853c1bd</color>
+    <color name="lineCard_dots">#ff9800</color>
+    <color name="lineCard_label">#6a84c3</color>
+
+    <color name="text_tag">#2989ff</color>
+    <color name="bg_tag">#ebf2ff</color>
+    <!--分割线-->
+    <color name="divide_line">#E4E7EA</color>
+
+    <color name="home_skill_bg">#D5E5FF</color>
+    <color name="home_skill_fg_color">#0864E9</color>
+    <color name="home_skill_fg_color_press">#800864E9</color>
+    <color name="home_exam_fg_color_press">#8039C868</color>
+    <color name="home_exam_fg_color">#39C868</color>
+    <color name="home_exam_bg">#8BE4A8</color>
+    <color name="pay_money">#D32D1B</color>
+    <color name="km_type_sel">#0E69E9</color>
+    <color name="coupon_dialog_bg">#DDEBFF</color>
+    <color name="color_080808">#080808</color>
+    <color name="color_4183EF">#4183EF</color>
+
+    <color name="text_hint">#b6b6b6</color>
+    <color name="live_pay_foreground">#FF2E2E</color>
+    <color name="live_pay_backgorund">#CA0E0E</color>
+    <color name="live_pay_foreground_press">#80FF2E2E</color>
+    <color name="live_pay_backgorund_press">#80CA0E0E</color>
+
+    <color name="littleWhile_bg">#EFEDED</color>
+
+</resources>

@@ -1,6 +1,17 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+String AppName = "Weather"
+
+// 获取local.properties的内容
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+// 渠道列表
+String[] channelArray = properties.getProperty('channel.list').split(',')
 
 android {
     compileSdkVersion 29
@@ -14,22 +25,114 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // 包名
+        applicationId = properties.getProperty("${AppName}_applicationId")
+
+        // 默认值
+        manifestPlaceholders = [
+                UMENG_APP_KEY : properties.getProperty("cupcake_umeng_appkey"),
+                UMENG_CHANNEL_VALUE : properties.getProperty("cupcake_umeng_channel")
+        ]
+
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    //签名 -> 要放在 buildTypes 上面
+    signingConfigs {
+        config {
+            storeFile file(properties.getProperty("keystroe_storeFile"))
+            storePassword properties.getProperty("keystroe_storePassword")
+            keyAlias properties.getProperty("keystroe_keyAlias")
+            keyPassword properties.getProperty("keystroe_keyPassword")
+        }
     }
 
     buildTypes {
-        release {
+        debug{
             minifyEnabled false
+            signingConfig signingConfigs.config
+            buildConfigField "String", "AppId", "\"${AppName}\""
+            buildConfigField "String", "SecretKey", "\"a29e2a96d2386a51\""
+        }
+        release {
+            minifyEnabled true
+            // shrinkResources true//打开资源压缩 ->未测试
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "AppId", "\"${AppName}\""
+            buildConfigField "String", "SecretKey", "\"a29e2a96d2386a51\""
         }
     }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    // 多渠道打包
+    flavorDimensions "default"
+    productFlavors {
+        for (int i = 0; i < channelArray.size(); i++) {
+            def channel = channelArray[i]
+            /*  if (channel == "vivo") {
+                  "${channel}" {
+                      dimension "default"
+                      manifestPlaceholders = [
+                              APP_ICON           : "@mipmap/ic_launcher_vivo",
+                              UMENG_CHANNEL_VALUE: channel
+                      ]
+                  }
+              } else if (channel == "huawei") {
+                  "${channel}" {
+                      dimension "default"
+                      manifestPlaceholders = [
+                              APP_ICON           : "@mipmap/ic_launcher_hw",
+                              UMENG_CHANNEL_VALUE: channel
+                      ]
+                  }
+              } else {*/
+            "${channel}" {
+                dimension "default"
+                manifestPlaceholders = [
+                        APP_ICON           : "@mipmap/logo_0",
+                        UMENG_CHANNEL_VALUE: channel
+                ]
+                //  }
+            }
+        }
+    }
+
 }
 
 dependencies {
+    implementation project(path: ':basicsLibrary')
+
+    // 友盟统计SDK
+    // implementation  'com.umeng.umsdk:common:9.1.0' // (必选) -> 放在base模块了
+    implementation  'com.umeng.umsdk:asms:1.1.3'  // asms包依赖(必选)
+    implementation 'com.umeng.umsdk:crash:0.0.4' // native crash包依赖(必选)
+    //Hilt
+    implementation 'com.google.dagger:hilt-android:2.28.3-alpha'
+    kapt 'com.google.dagger:hilt-android-compiler:2.28.3-alpha'
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02' //ViewModel的Hilt支持
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

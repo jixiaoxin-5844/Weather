@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="updateTv0">以后再说</string>
+    <string name="updateTv1">立刻更新</string>
+    <string name="updateTv2">检测到更新</string>
+
+</resources>
