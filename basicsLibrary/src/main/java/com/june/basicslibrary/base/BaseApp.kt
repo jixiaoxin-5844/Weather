@@ -15,10 +15,10 @@ import kotlin.properties.Delegates
  * version : 1.0
  *
  */
-open class BaseApp : Application() , ViewModelStoreOwner{
+open class BaseApp : Application() {
 
 
-    private lateinit var mAppViewModelStore: ViewModelStore
+
 
     companion object {
         @JvmStatic
@@ -28,7 +28,6 @@ open class BaseApp : Application() , ViewModelStoreOwner{
 
     override fun onCreate() {
         super.onCreate()
-        mAppViewModelStore = ViewModelStore()
         CONTEXT = applicationContext
         MMKV.initialize(this)  // MM KV
         kv = MMKV.defaultMMKV()  //获取实例对象
@@ -37,9 +36,7 @@ open class BaseApp : Application() , ViewModelStoreOwner{
 
     }
 
-    override fun getViewModelStore(): ViewModelStore {
-        return mAppViewModelStore
-    }
+
 
 
 }

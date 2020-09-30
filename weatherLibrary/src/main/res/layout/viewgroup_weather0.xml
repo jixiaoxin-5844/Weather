@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/weather0_location"
+        android:layout_width="@dimen/qb_px_20"
+        android:layout_height="@dimen/qb_px_20"
+        android:layout_marginStart="@dimen/qb_px_20"
+        android:layout_marginTop="@dimen/qb_px_20"
+        android:contentDescription="@string/pic0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/simple_title_back" />
+
+
+    <TextView
+        android:id="@+id/weather0_cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/qb_px_8"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/weather0_location"
+        app:layout_constraintStart_toEndOf="@+id/weather0_location"
+        app:layout_constraintTop_toTopOf="@+id/weather0_location"
+        tools:text="Xiamen" />
+
+    <TextView
+        android:id="@+id/weather0_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/weather0_location"
+        app:layout_constraintTop_toBottomOf="@+id/weather0_location"
+        tools:text="9月28日" />
+
+    <ImageView
+        android:layout_width="@dimen/qb_px_40"
+        android:layout_height="@dimen/qb_px_40"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

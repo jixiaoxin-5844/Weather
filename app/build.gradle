@@ -31,8 +31,8 @@ android {
 
         // 默认值
         manifestPlaceholders = [
-                UMENG_APP_KEY : properties.getProperty("cupcake_umeng_appkey"),
-                UMENG_CHANNEL_VALUE : properties.getProperty("cupcake_umeng_channel")
+                UMENG_APP_KEY : properties.getProperty("shijing_umeng_appkey"),
+                UMENG_CHANNEL_VALUE : properties.getProperty("shijing_umeng_channel")
         ]
 
         ndk {
@@ -54,19 +54,24 @@ android {
         debug{
             minifyEnabled false
             signingConfig signingConfigs.config
-            buildConfigField "String", "AppId", "\"${AppName}\""
-            buildConfigField "String", "SecretKey", "\"a29e2a96d2386a51\""
+            buildConfigField "String", "OssBasePath", properties.getProperty("OssBasePath")
+            buildConfigField "String", "WeatherKey", properties.getProperty("HeFeng_Key")
         }
         release {
             minifyEnabled true
             // shrinkResources true//打开资源压缩 ->未测试
             signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "AppId", "\"${AppName}\""
-            buildConfigField "String", "SecretKey", "\"a29e2a96d2386a51\""
+            buildConfigField "String", "OssBasePath", properties.getProperty("OssBasePath")
+            buildConfigField "String", "WeatherKey", properties.getProperty("HeFeng_Key")
         }
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -104,7 +109,7 @@ android {
             "${channel}" {
                 dimension "default"
                 manifestPlaceholders = [
-                        APP_ICON           : "@mipmap/logo_0",
+                        APP_ICON           : "@mipmap/logo0",
                         UMENG_CHANNEL_VALUE: channel
                 ]
                 //  }
@@ -115,7 +120,7 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':basicsLibrary')
+    //implementation project(path: ':basicsLibrary')
 
     // 友盟统计SDK
     // implementation  'com.umeng.umsdk:common:9.1.0' // (必选) -> 放在base模块了
@@ -123,6 +128,7 @@ dependencies {
     implementation 'com.umeng.umsdk:crash:0.0.4' // native crash包依赖(必选)
     //Hilt
     implementation 'com.google.dagger:hilt-android:2.28.3-alpha'
+    implementation project(path: ':weatherLibrary')
     kapt 'com.google.dagger:hilt-android-compiler:2.28.3-alpha'
     implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02' //ViewModel的Hilt支持
     kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'

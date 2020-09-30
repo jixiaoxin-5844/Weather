@@ -7,4 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="MyAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>  <!--操作栏背景-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item> <!--statusBarColor 和 navigationBarColor-->
+        <item name="colorAccent">@color/colorAccent</item> <!--框架颜色-->
+    </style>
+
 </resources>

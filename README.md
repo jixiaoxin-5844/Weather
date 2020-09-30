@@ -1,10 +1,9 @@
-# Dyy一个可复用的，用于快速开发,即时上手开发项目逻辑。包含一些基本功能的开源库。
-
+Weather: 一个开源的天气app
 模块: 
 basicLibrary->基础的库，Base类，通用的工具类
-Viewlibrary->自定义View，item布局、组合控件布局、样式
 
-Kotlin+MVVM+Retrofit+协程+JetPack
+
+Kotlin + MVVM + Retrofit + 协程 + JetPack
 用到的轮子->
 架构 : MVVM;
 
