@@ -1,4 +1,4 @@
-package com.shijing.weather
+package com.shijing.weather.base
 
 import android.app.Activity
 import android.app.Application

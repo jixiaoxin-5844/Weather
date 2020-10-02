@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/qb_px_260">
 
     <ImageView
         android:id="@+id/weather0_location"
@@ -14,8 +15,7 @@
         android:contentDescription="@string/pic0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/simple_title_back" />
-
+        tools:src="@mipmap/location" />
 
     <TextView
         android:id="@+id/weather0_cityName"
@@ -31,15 +31,88 @@
 
     <TextView
         android:id="@+id/weather0_time"
+        android:textSize="12sp"
+        android:layout_marginTop="@dimen/qb_px_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/weather0_location"
         app:layout_constraintTop_toBottomOf="@+id/weather0_location"
-        tools:text="9月28日" />
+        tools:text="9月28日 17:30" />
+
+    <TextView
+        android:id="@+id/weather0_exactTime"
+        android:visibility="gone"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/qb_px_8"
+        app:layout_constraintStart_toEndOf="@+id/weather0_time"
+        app:layout_constraintTop_toTopOf="@+id/weather0_time"
+        app:layout_constraintBottom_toBottomOf="@+id/weather0_time"
+
+        tools:text="17:30"/>
 
     <ImageView
-        android:layout_width="@dimen/qb_px_40"
-        android:layout_height="@dimen/qb_px_40"/>
+        android:id="@+id/weather0_statePic"
+        android:contentDescription="@string/pic0"
+        tools:src="@mipmap/show0"
+        android:layout_width="@dimen/qb_px_68"
+        android:layout_height="@dimen/qb_px_68"
 
+        app:layout_constraintStart_toStartOf="@+id/weather0_time"
+        app:layout_constraintTop_toBottomOf="@+id/weather0_time" />
+
+    <TextView
+        android:id="@+id/weather0_tem"
+        android:gravity="center"
+        android:textSize="44sp"
+        android:textColor="@color/black"
+        android:layout_width="@dimen/qb_px_68"
+        android:layout_height="@dimen/qb_px_68"
+        android:layout_marginStart="@dimen/qb_px_8"
+        app:layout_constraintStart_toEndOf="@+id/weather0_statePic"
+        app:layout_constraintTop_toTopOf="@+id/weather0_statePic"
+        app:layout_constraintBottom_toBottomOf="@+id/weather0_statePic"
+        tools:text="20°"/>
+
+    <TextView
+        android:id="@+id/weather0_text0"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginEnd="@dimen/qb_px_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/weather0_tem"
+        app:layout_constraintBottom_toTopOf="@+id/weather0_text1"
+        tools:text="多云" />
+
+    <TextView
+        android:id="@+id/weather0_text1"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/weather0_text0"
+        app:layout_constraintTop_toBottomOf="@+id/weather0_text0"
+        app:layout_constraintBottom_toTopOf="@+id/weather0_text2"
+        tools:text="29°/22°"/>
+
+    <TextView
+        android:id="@+id/weather0_text2"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/weather0_tem"
+        app:layout_constraintEnd_toEndOf="@+id/weather0_text1"
+        app:layout_constraintTop_toBottomOf="@+id/weather0_text1"
+        tools:text="体感温度30°" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weather0_Recycler0"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/qb_px_120"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weather0_statePic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

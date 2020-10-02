@@ -17,9 +17,6 @@ import kotlin.properties.Delegates
  */
 open class BaseApp : Application() {
 
-
-
-
     companion object {
         @JvmStatic
         var CONTEXT: Context by Delegates.notNull()

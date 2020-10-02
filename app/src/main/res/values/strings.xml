@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">时鲸天气</string>
+
+    <string name="channel_sendMessageId">sendMessageId</string>
+    <string name="channel_sendMessage">消息推送</string>
+    <string name="description_sendMessage">接收消息推送</string>
+
 </resources>

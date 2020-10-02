@@ -4,15 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
-
-
-    <com.shijing.weatherlibrary.WeatherLayout0
-        android:background="@color/colorPrimary"
-        android:id="@+id/WeatherLayout0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/qb_px_260"/>
+    tools:context=".view.SplashActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

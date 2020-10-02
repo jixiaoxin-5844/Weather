@@ -7,10 +7,12 @@ package com.shijing.weather.data.api
  *
  */
 class BaseAction {
-    companion object{
+    companion object {
 
-        //和风天气 -> 开发版
+        //和风天气信息 -> 开发版
         const val WeatherPath = "https://devapi.heweather.net/v7/weather/"
+        //城市信息搜索
+        const val WeatherCity = "https://geoapi.heweather.net/v2/city/lookup?"
 
     }
 }

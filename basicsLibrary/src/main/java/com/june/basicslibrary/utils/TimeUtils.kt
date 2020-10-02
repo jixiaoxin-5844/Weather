@@ -26,6 +26,13 @@ class TimeUtils {
             return simpleDateFormat.format(date)
         }
 
+        //获取当前时间，精确到时分秒
+        fun getExactTime2(): String {
+            val simpleDateFormat = SimpleDateFormat("M月d日 HH:mm", Locale.CHINA)
+            val date = Date(System.currentTimeMillis())
+            return simpleDateFormat.format(date)
+        }
+
         //传入日期 格式 2020-5-20   ，转换成对应日期毫秒数 (1970年1月1日起的毫秒数)
         fun transform(date: String): Long? {
             val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
