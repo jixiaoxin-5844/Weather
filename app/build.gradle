@@ -125,6 +125,7 @@ dependencies {
 
     implementation project(path: ':weatherLibrary')
     implementation files('libs/AMap_Location_V5.2.0_20200915.jar')
+    implementation project(path: ':ViewLibrary')
 
     // 友盟统计SDK
     // implementation  'com.umeng.umsdk:common:9.1.0' // (必选) -> 放在base模块了

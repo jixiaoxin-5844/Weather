@@ -4,4 +4,7 @@
     <string name="updateTv1">立刻更新</string>
     <string name="updateTv2">检测到更新</string>
 
+    <string name="back">返回</string>
+    <string name="btn0">图标</string>
+
 </resources>

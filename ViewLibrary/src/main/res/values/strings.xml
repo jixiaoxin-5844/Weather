@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--图片描述-->
+    <string name="back">返回</string>
+    <string name="pic">只是一张图片</string>
+    <string name="pic0">头像</string>
+
+    <!--mine-->
+    <string name="help">帮助与反馈</string>
+    <string name="about">关于****</string>
+    <string name="personalCenter">个人中心</string>
+    <string name="setting">设置</string>
+    <string name="setting1">debug调试</string>
+
+    <!--userShow_card-->
+    <string name="userShowCard0">微信号: </string>
+    <string name="userShowCard1">hytbcptdtptp</string>
+
+
+
+
+
+</resources>

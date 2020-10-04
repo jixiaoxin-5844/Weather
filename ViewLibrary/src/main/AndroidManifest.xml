@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.july.viewlibrary">
+
+    <application>
+        <activity android:name=".activity.SpecificBtnActivity"/>
+        <activity android:name=".activity.SearchViewActivity"/>
+        <activity android:name=".activity.CircleBackgroundActivity"/>
+        <activity android:name=".activity.CircleProgressActivity"/>
+        <activity android:name=".activity.RecyclerViewActivity"/>
+        <activity android:name=".activity.SimpleTitleActivity"/>
+    </application>
+
+</manifest>

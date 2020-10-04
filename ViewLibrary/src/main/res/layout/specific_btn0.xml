@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/btnRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/qb_px_40"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/specificBtn0_Img0"
+        android:layout_marginStart="24dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/simple_title_back"
+        android:contentDescription="@string/pic" />
+
+    <TextView
+        android:id="@+id/specificBtn0_tv0"
+        android:maxEms="8"
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/specificBtn0_Img0"
+        app:layout_constraintStart_toEndOf="@+id/specificBtn0_Img0"
+        app:layout_constraintTop_toTopOf="@+id/specificBtn0_Img0"
+        tools:text="设置" />
+
+    <ImageView
+        android:id="@+id/specificBtn0_Img1"
+        android:rotation="180"
+        android:layout_marginEnd="16dp"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:tint="@color/lineCard_title"
+        android:src="@mipmap/simple_title_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/pic"/>
+
+    <TextView
+        android:id="@+id/specificBtn0_tv1"
+        android:layout_marginEnd="@dimen/qb_px_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/specificBtn0_Img1"
+        app:layout_constraintEnd_toStartOf="@+id/specificBtn0_Img1"
+        app:layout_constraintTop_toTopOf="@+id/specificBtn0_Img1"
+        tools:text="北京" />
+
+    <TextView
+        android:background="@color/littleWhile_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_marginStart="68dp"
+        android:layout_height="1px"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

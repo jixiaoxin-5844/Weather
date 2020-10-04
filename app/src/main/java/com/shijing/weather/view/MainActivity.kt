@@ -2,6 +2,7 @@ package com.shijing.weather.view
 
 import android.Manifest
 import android.app.NotificationManager
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -16,8 +17,11 @@ import com.permissionx.guolindev.PermissionX
 import com.shijing.weather.R
 import com.shijing.weather.data.storage.AppDataKv
 import com.shijing.weather.data.storage.WeatherDataKv
+import com.shijing.weather.utils.WeatherUtils
 import com.shijing.weather.viewModel.MainViewModel
 import com.shijing.weatherlibrary.interfaceA.OnImgClickListener
+import com.zaaach.citypicker.adapter.OnPickListener
+import com.zaaach.citypicker.model.City
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_title.view.*
@@ -30,6 +34,11 @@ class MainActivity : BaseActivity() {
     private var mIsRelease = false
     private var mLocationClient: AMapLocationClient? = null
 
+    //是否拥有定位权限
+    private var permission = Common.checkPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+
+    private val requestCode = 20  //SettingActivity
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,61 +50,85 @@ class MainActivity : BaseActivity() {
             initPermissionX()
         }
 
+        getLocation()
+
         initView()
         refreshData()
 
         //获取数据、存储、展示
-        getData()
         startObserve()
     }
 
-    private fun initView() {
-        WeatherLayout0.setOnImgClickListener(object : OnImgClickListener {
-            override fun click() {
-                getLocation()
-
+    private fun openSelectCity() {
+        WeatherUtils.openSelectCity(this, object : OnPickListener {
+            override fun onPick(position: Int, data: City?) {
+               // viewModel.locationId.value = data!!.code
+              //  WeatherDataKv.setLocationId(data.code)
+                viewModel.cityName.value = data!!.name
+                WeatherDataKv.setCityName(data.name)
+            }
+            override fun onLocate() {
+                L.d("CityPicker", "onLocate")
+            }
+            override fun onCancel() {
+                L.d("CityPicker", "onLocate")
             }
         })
-        mainSwipeRefresh.setOnRefreshListener {
-            refreshData()
-            getData()
+    }
+
+    private fun initView() {
+
+        if (permission) {
+            WeatherLayout0.setLocationTextVisible()
+            //定位，判断有无定位权限展示不同图标   !!!
+            WeatherLayout0.setLocationPic(com.shijing.weatherlibrary.R.mipmap.location)
+        } else {
+            WeatherLayout0.setLocationPic(com.shijing.weatherlibrary.R.mipmap.no_location)
         }
 
-        val permission = Common.checkPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-        if(permission){
+        //定位按钮
+        WeatherLayout0.setOnImgClickListener(object : OnImgClickListener {
+            override fun click() {
+                if (permission) {
+                    UtilToast.show("正在重新定位")
+                    getLocation()
+                } else {
+                    //打开选择城市
+                    openSelectCity()
+                }
+            }
+        })
 
-            WeatherLayout0.setLocationTextVisible()
+        //下拉刷新
+        mainSwipeRefresh.setOnRefreshListener {
+            getLocation()
+            refreshData()
         }
 
         Glide.with(this).load(R.mipmap.magic).into(mainTitle.itemTitle_img0)
+
+        mainTitle.itemTitle_img1.setOnClickListener {
+            startActivityForResult(Intent(this, SettingActivity::class.java),requestCode)
+        }
 
     }
 
 
     // 刷新数据
     private fun refreshData() {
-        WeatherLayout0
-        main_turnoverTime    //更新数据更新时间
-
-        //定位，判断有无定位权限展示不同图标   !!!
-        WeatherLayout0.setLocationPic(com.shijing.weatherlibrary.R.mipmap.location)
-
         WeatherLayout0.setDate(TimeUtils.getExactTime2())   //时间
-        WeatherLayout0.setCityName(WeatherDataKv.getCityName())  //城市名
         WeatherLayout0.setLocationText(WeatherDataKv.getLongitudeAndLatitude())
-
-    }
-
-    //获取数据
-    private fun getData() {
-        //      val location = WeatherDataKv.getLongitudeAndLatitude()
-        viewModel.getLocationInfo(WeatherDataKv.getCityName())  //获取获取城市id
-
     }
 
     private fun startObserve() {
 
-        viewModel.locationId.observe(this,{
+        viewModel.cityName.observe(this, {
+            viewModel.getLocationInfo(it)  //获取获取城市id
+            WeatherLayout0.setCityName(it)   //城市名
+        })
+
+        //获取数据
+        viewModel.locationId.observe(this, {
             viewModel.getNowData(it)
             viewModel.getDailyData(it)
             viewModel.getHourlyData(it)
@@ -121,8 +154,9 @@ class MainActivity : BaseActivity() {
 
         viewModel.sevenDailyBean.observe(this, {
             WeatherLayout2.setRecycler0(it)
-            mainSwipeRefresh.isRefreshing = false
+            mainSwipeRefresh.isRefreshing = false  //下拉刷新完成
         })
+
 
     }
 
@@ -132,20 +166,20 @@ class MainActivity : BaseActivity() {
         //配置定位参数
         val aMapOption = AMapLocationClientOption()
         //低功耗定位模式：不会使用GPS和其他传感器，只会使用网络定位（Wi-Fi和基站定位(默认高精度)
-       // aMapOption.locationMode = AMapLocationClientOption.AMapLocationMode.Hight_Accuracy
+        // aMapOption.locationMode = AMapLocationClientOption.AMapLocationMode.Hight_Accuracy
         //设置单次定位
         aMapOption.isOnceLocation = true
         mLocationClient!!.setLocationOption(aMapOption)
         mLocationClient!!.setLocationListener {
             if (it != null) {
                 if (it.errorCode == 0) { //定位成功
+                    viewModel.cityName.value = it.city
                     WeatherDataKv.setCityName(it.city)
-                    WeatherDataKv.setLongitudeAndLatitude("${it.longitude}","${it.latitude}")
+                    WeatherDataKv.setLongitudeAndLatitude("${it.longitude}", "${it.latitude}")
 
                 } else {
+                    viewModel.cityName.value = WeatherDataKv.getCityName()
                     L.e(
-                        //没权限去手动选择城市
-
                         "Amap", "location Error, " +
                                 "ErrCode:" + it.errorCode + ", " +
                                 "errInfo:" + it.errorInfo
@@ -177,7 +211,8 @@ class MainActivity : BaseActivity() {
             }
             .request { allGranted, grantedList, deniedList ->
                 if (allGranted) {
-                   // ToastUtils.show("有权限了")
+                    getLocation()
+                    permission = true
                 } else {
                     ToastUtils.show("拒绝了权限")
                 }
@@ -195,7 +230,7 @@ class MainActivity : BaseActivity() {
         val sendMessage = getString(R.string.channel_sendMessage)
         val sendDescriptionMessage = getString(R.string.description_sendMessage)
         //API大于等于26才需要创建渠道
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_DEFAULT  //通知重要性等级
             // val importanceLow = NotificationManager.IMPORTANCE_LOW  //通知重要性等级
             NotificationUtils.createChannel(
@@ -209,6 +244,7 @@ class MainActivity : BaseActivity() {
     }
 
     //****************************
+
     private fun release() {
         if (mIsRelease) {
             return
@@ -233,4 +269,15 @@ class MainActivity : BaseActivity() {
         release()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == this.requestCode && resultCode == 21){
+            //设置页面返回 -> 手动选择城市
+            val cityName = data?.getStringExtra("forSetting")
+            viewModel.cityName.value = cityName
+        }else if(requestCode == this.requestCode && resultCode == 22){
+            //授予权限后，刷新一下
+            getLocation()
+        }
+    }
 }

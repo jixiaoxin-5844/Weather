@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/littleWhile_bg"
+    tools:context=".view.SettingActivity">
+
+    <com.june.basicslibrary.ui.ToolBarTitle
+        android:id="@+id/setTing_Title"
+        android:background="@color/white"
+        app:title="@string/setTing"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"/>
+
+    <com.july.viewlibrary.customView.viewGroup.SpecificBtn0
+        android:id="@+id/settingGETLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/qb_px_24"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:btnText="@string/getLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setTing_Title" />
+
+    <com.july.viewlibrary.customView.viewGroup.SpecificBtn0
+        android:id="@+id/settingAbout"
+        android:layout_marginTop="@dimen/qb_px_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btnText="@string/update"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingGETLocation" />
+
+    <com.july.viewlibrary.customView.viewGroup.SpecificBtn0
+        android:id="@+id/setting_cityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btnText="@string/cityName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingAbout" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

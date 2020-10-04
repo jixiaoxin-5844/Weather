@@ -33,6 +33,7 @@ class MainViewModel : ViewModel() {
     var hourlyBean = MutableLiveData<MutableList<Hourly>>()
     var sevenDailyBean = MutableLiveData<MutableList<Daily>>()
 
+    var cityName =  MutableLiveData(WeatherDataKv.getCityName())
     var locationId = MutableLiveData(WeatherDataKv.getLocationId())
 
     /**

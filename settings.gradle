@@ -1,4 +1,5 @@
 include ':weatherLibrary'
 include ':app'
 include ':basicsLibrary'
+include ':ViewLibrary'
 rootProject.name = "Weather"

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.july.viewlibrary.activity.SearchViewActivity">
+
+    <EditText
+        android:id="@+id/searchEdit"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginEnd="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/searchSaveEdit"
+        android:text="保存输入的文本"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/searchEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+        <com.july.viewlibrary.customView.viewGroup.LabelView
+            android:id="@+id/searchView"
+            android:background="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchEdit" />
+
+    <Button
+        android:id="@+id/searchClear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清除"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/searchShowList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示当前数据"
+        app:layout_constraintBottom_toTopOf="@+id/searchViewSave"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/searchViewSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存当前数据"
+        app:layout_constraintBottom_toTopOf="@+id/searchInitData"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/searchInitData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="重新初始化数据"
+        app:layout_constraintBottom_toTopOf="@+id/searchViewShow"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/searchViewShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示删除按钮"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

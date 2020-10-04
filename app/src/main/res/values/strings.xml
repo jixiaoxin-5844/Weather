@@ -9,5 +9,9 @@
     <string name="text1">已更新</string>
     <string name="magic">魔法</string>
     <string name="option">选项</string>
+    <string name="setTing">设置</string>
+    <string name="getLocation">授予定位权限</string>
+    <string name="update">检查更新</string>
+    <string name="cityName">当前所处城市</string>
 
 </resources>

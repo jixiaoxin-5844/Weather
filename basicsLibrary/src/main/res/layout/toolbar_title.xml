@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/toolBar_Back"
+        android:layout_width="@dimen/qb_px_22"
+        android:layout_height="@dimen/qb_px_22"
+        android:src="@mipmap/back"
+        android:contentDescription="@string/back"
+        android:layout_marginStart="@dimen/qb_px_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/toolBar_TitleText"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="首页" />
+
+    <ImageView
+        android:id="@+id/toolBar_RightImg0"
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:contentDescription="@string/btn0"
+        tools:src="@mipmap/simple_title_back"
+        android:layout_width="@dimen/qb_px_20"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/qb_px_8"
+        android:layout_marginBottom="@dimen/qb_px_8"
+        android:layout_marginEnd="@dimen/qb_px_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

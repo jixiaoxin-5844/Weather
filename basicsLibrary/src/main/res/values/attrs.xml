@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--简易标题->文字居中可显示右边图标-->
+    <declare-styleable name="ToolBarTitle">
+        <!-- Sets a drawable as the content of this ToolBarTitle. -->
+        <attr name="btnSrc" format="reference|color" />    <!--右方图标-->
+        <attr name="title" format="string" />              <!--描述文字-->
+    </declare-styleable>
+
+</resources>

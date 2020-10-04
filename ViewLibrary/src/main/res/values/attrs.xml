@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--背景圆-->
+    <declare-styleable name="CircleBackground">
+        <attr name="lineBackground" format="color" />   <!--线条背景颜色-->
+        <attr name="lineDegree" format="float" />       <!--线条粗细-->
+    </declare-styleable>
+
+    <!--进度圆-->
+    <declare-styleable name="CircleProgress">
+        <attr name="lineBackground1" format="color" />          <!--线条背景颜色-->
+        <attr name="lineScheduleBackground" format="color" />   <!--线条进度颜色-->
+        <attr name="schedule" format="float" />                 <!--进度-->
+        <attr name="lineDegree1" format="float" />              <!--线条粗细(两个圆应该一样)-->
+        <attr name="startAngle" format="float" />               <!--进度开始的地方-->
+        <attr name="scheduleText" format="float" />             <!--进度文字-->
+        <attr name="scheduleTextColor" format="color" />        <!--进度文字颜色-->
+        <attr name="scheduleTextSize" format="dimension" />     <!--进度文字大小-->
+    </declare-styleable>
+
+    <!--简易标题栏-->
+    <declare-styleable name="SimpleTitle">
+        <attr name="titleName" format="string" />         <!--标题栏文字-->
+    </declare-styleable>
+
+    <!--历史搜索-->
+    <declare-styleable name="LabelView">
+        <attr name="itemMarginTop" format="integer" />          <!--内部LabelItem距离顶部-->
+        <attr name="itemMarginStart" format="integer" />        <!--内部LabelItem距离起始位置-->
+    </declare-styleable>
+
+    <!--SpecificBtn0-->
+    <declare-styleable name="SpecificBtn0">
+
+        <attr name="btnText" format="string|reference" />   <!-- 文字 -->
+        <attr name="btnTextColor" format="reference" />     <!-- 字体颜色 -->
+        <attr name="btnTextSize" format="dimension" />      <!-- 字体大小 -->
+        <attr name="icon" format="reference" />             <!-- 图标(默认无) -->
+        <attr name="lineColor" format="reference" />        <!-- 分隔线的颜色 -->
+
+    </declare-styleable>
+
+    <!--UserShowCard-->
+    <declare-styleable name="UserShowCard">
+        <attr name="UserShowCard_headPic" format="reference" />  <!--用户头像-->
+
+    </declare-styleable>
+
+
+</resources>
