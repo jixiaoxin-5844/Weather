@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/itemTitle_img0"
+        android:layout_marginStart="@dimen/qb_px_20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/qb_px_32"
+        android:layout_height="@dimen/qb_px_32"
+        android:contentDescription="@string/magic" />
+
+    <ImageView
+        android:id="@+id/itemTitle_img1"
+        android:src="@mipmap/option"
+        android:layout_marginEnd="@dimen/qb_px_20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="@dimen/qb_px_24"
+        android:layout_height="@dimen/qb_px_24"
+        android:contentDescription="@string/magic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

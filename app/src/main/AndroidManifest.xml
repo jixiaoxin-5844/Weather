@@ -3,11 +3,17 @@
     package="com.shijing.weather">
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 联网方式 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- WIFI mac地址 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  <!--  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> &lt;!&ndash; 联网方式 &ndash;&gt;
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />--> <!-- WIFI mac地址 -->
+  <!--  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+
+    <!--定位需要-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>    <!--用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!--用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>   <!--这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
 
     <application
         android:name=".base.App"
@@ -38,6 +44,14 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
+
+        <!--高德定位-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="${GD_KEY}">
+        </meta-data>
+
+        <service android:name="com.amap.api.location.APSService"/>
 
     </application>
 

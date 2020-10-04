@@ -9,11 +9,11 @@ package com.shijing.weatherlibrary.bean
 data class Hourly(
     val cloud: String?,
     val dew: String?,
-    val fxDate: String?,
+    val fxTime: String?,
     val humidity: String?,
     val ice: String?,
     val icon: String?,
-    val pop: String?,
+    val pop: String,
     val precip: String?,
     val pressure: String?,
     val snow: String?,

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/qb_px_40"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/itemWeather2_date"
+        android:layout_marginStart="@dimen/qb_px_20"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="2020-10-02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/itemWeather2_rainfallImg"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.66"
+        android:layout_width="@dimen/qb_px_20"
+        android:layout_height="@dimen/qb_px_20"
+        android:layout_marginEnd="@dimen/qb_px_8"
+        android:contentDescription="@string/pic2"
+        android:src="@mipmap/rainfall"
+        app:layout_constraintBottom_toBottomOf="@+id/itemWeather2_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/itemWeather2_date" />
+
+    <TextView
+        android:id="@+id/itemWeather2_rainfall"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginStart="@dimen/qb_px_8"
+        app:layout_constraintStart_toEndOf="@+id/itemWeather2_rainfallImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/qb_px_40"
+        app:layout_constraintBottom_toBottomOf="@+id/itemWeather2_rainfallImg"
+        app:layout_constraintTop_toTopOf="@+id/itemWeather2_rainfallImg"
+        tools:text="40%" />
+
+    <TextView
+        android:id="@+id/itemWeather2_temp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="@dimen/qb_px_20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="29°/22°"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

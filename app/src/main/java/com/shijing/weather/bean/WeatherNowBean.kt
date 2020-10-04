@@ -11,7 +11,7 @@ data class WeatherNowBean(
     val fxLink: String?,
     val now: Now?,
     val refer: Refer0?,
-    val updateTime: String?
+    val updateTime: String
 )
 
 data class Now(

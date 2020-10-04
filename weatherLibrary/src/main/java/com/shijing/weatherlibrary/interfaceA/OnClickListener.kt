@@ -1,4 +1,4 @@
-package com.hyt.interfaceA
+package com.shijing.weatherlibrary.interfaceA
 
 /**
  * author : Hyt

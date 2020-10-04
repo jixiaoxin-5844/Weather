@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="@dimen/qb_px_16">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/itemWeather0"
+            layout="@layout/item_weather3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/itemWeather1"
+            layout="@layout/item_weather3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemWeather0" />
+
+        <include
+            android:id="@+id/itemWeather2"
+            layout="@layout/item_weather3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemWeather1" />
+
+        <include
+            android:id="@+id/itemWeather3"
+            layout="@layout/item_weather3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemWeather2" />
+
+        <include
+            android:id="@+id/itemWeather4"
+            layout="@layout/item_weather3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemWeather3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

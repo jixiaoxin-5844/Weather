@@ -2,7 +2,11 @@
 <resources>
     <string name="pic0">定位</string>
     <string name="pic1">天气状态</string>
-    <string name="pic2">降雨量</string>
+    <string name="pic2">降雨概率</string>
+    <string name="pic3">item图标</string>
+
+    <string name="rainfall">降水量</string>
+    <string name="ur">紫外线指数</string>
 
 
 </resources>

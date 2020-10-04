@@ -5,4 +5,9 @@
     <string name="channel_sendMessage">消息推送</string>
     <string name="description_sendMessage">接收消息推送</string>
 
+    <string name="text0">来源:和风天气</string>
+    <string name="text1">已更新</string>
+    <string name="magic">魔法</string>
+    <string name="option">选项</string>
+
 </resources>

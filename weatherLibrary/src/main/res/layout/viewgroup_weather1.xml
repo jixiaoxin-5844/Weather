@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardCornerRadius="@dimen/qb_px_16"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/qb_px_80"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/weather1_left"
+            app:layout_constraintEnd_toStartOf="@+id/weather1_right"
+            android:layout_width="@dimen/qb_px_160"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/weather1_rainfall"
+                android:layout_width="@dimen/qb_px_36"
+                android:layout_height="@dimen/qb_px_36"
+                android:layout_marginStart="@dimen/qb_px_40"
+                android:contentDescription="@string/pic2"
+                android:src="@mipmap/rainfall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/weather1_rainfallText1"
+                android:layout_marginTop="@dimen/qb_px_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qb_px_8"
+                android:text="@string/pic2"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/weather1_rainfallText2"
+                app:layout_constraintStart_toEndOf="@+id/weather1_rainfall"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/weather1_rainfallText2"
+                android:layout_marginBottom="@dimen/qb_px_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/weather1_rainfallText1"
+                app:layout_constraintTop_toBottomOf="@+id/weather1_rainfallText1"
+                tools:text="40%" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/weather1_right"
+            android:layout_marginEnd="@dimen/qb_px_20"
+            android:layout_width="@dimen/qb_px_160"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weather1_left">
+
+            <ImageView
+                android:id="@+id/weather1_urPic"
+                android:layout_width="@dimen/qb_px_36"
+                android:layout_height="@dimen/qb_px_36"
+                android:layout_marginStart="@dimen/qb_px_20"
+                android:contentDescription="@string/pic2"
+                android:src="@mipmap/uva"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/weather1_ur"
+                android:layout_marginTop="@dimen/qb_px_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/qb_px_8"
+                android:text="@string/ur"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/weather1_urText"
+                app:layout_constraintStart_toEndOf="@+id/weather1_urPic"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/weather1_urText"
+                android:layout_marginBottom="@dimen/qb_px_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/weather1_ur"
+                app:layout_constraintStart_toStartOf="@+id/weather1_ur"
+                app:layout_constraintTop_toBottomOf="@+id/weather1_ur"
+                tools:text="低(1)" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
