@@ -26,9 +26,7 @@ class SpecificBtnActivity : AppCompatActivity() {
             ToastUtils.show("视频")
         })*/
 
-        specificBtn01.setRootClickListener{
-            toast("呜呜呜$it")
-        }
+
 
     }
 }

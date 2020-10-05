@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Path xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Context.getFilesDir() -> 示例 : /data/data/com.chen.gradle/files/. -->
+    <files-path name="name1" path="." />
+
+    <!--Context.getCacheDir() -> 示例 : /data/data/com.chen.gradle/cache/. -->
+    <cache-path name="name2" path="." />
+
+    <!--Environment.getExternalStorageDirectory() -> /storage/emulated/0/. -->
+    <external-path name="name3" path="." />
+
+    <!--Context.getExternalFilesDir(null) -> /storage/emulated/0/Android/data/com.chen.gradle/files/. -->
+    <external-files-path name="name4" path="." />
+
+    <!--Context.getExternalCacheDir() -> /storage/emulated/0/Android/data/com.chen.gradle/cache/. -->
+    <external-cache-path name="name5" path="." />
+
+
+
+</Path>

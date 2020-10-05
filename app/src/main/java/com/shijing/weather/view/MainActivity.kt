@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.amap.api.location.AMapLocationClient
 import com.amap.api.location.AMapLocationClientOption
 import com.bumptech.glide.Glide
@@ -22,14 +23,14 @@ import com.shijing.weather.viewModel.MainViewModel
 import com.shijing.weatherlibrary.interfaceA.OnImgClickListener
 import com.zaaach.citypicker.adapter.OnPickListener
 import com.zaaach.citypicker.model.City
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_title.view.*
 
-@AndroidEntryPoint
+
 class MainActivity : BaseActivity() {
     override var barColor: Int = Color.parseColor("#EFEDED")
     private val viewModel by viewModels<MainViewModel>()
+   // private lateinit var viewModel : MainViewModel
 
     private var mIsRelease = false
     private var mLocationClient: AMapLocationClient? = null
@@ -42,6 +43,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+       // viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         if (AppDataKv.getFirstOpenApp()) {
             AppDataKv.setFirstOpenApp(false)
@@ -49,8 +51,6 @@ class MainActivity : BaseActivity() {
             createChannel()
             initPermissionX()
         }
-
-        getLocation()
 
         initView()
         refreshData()
@@ -77,6 +77,12 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initView() {
+
+        //当日首次打开app
+        if (AppDataKv.isToDayFirstOpen()) {
+            //清空安装包
+            FileUtils.clearFile(DownloadManagerUtils.apkPathUrl)
+        }
 
         if (permission) {
             WeatherLayout0.setLocationTextVisible()

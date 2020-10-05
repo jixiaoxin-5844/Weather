@@ -55,9 +55,4 @@ class SpecificBtn0 : ConstraintLayout {
         specificBtn0_tv1.text = text
     }
 
-    fun setRootClickListener(onClickListener: (View) -> Unit){
-        btnRoot.setOnClickListener(onClickListener)
-    }
-
-
 }

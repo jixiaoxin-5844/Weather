@@ -8,7 +8,6 @@ import android.content.IntentFilter
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.content.FileProvider
 import com.june.basicslibrary.R
 import java.io.File
@@ -17,7 +16,7 @@ import java.io.File
  * author : Hyt
  * time : 2020/09/12
  * version : 1.0
- *
+ * com.shijing.weather  这是包名，需要替换
  */
 object DownloadManagerUtils {
 
@@ -25,9 +24,9 @@ object DownloadManagerUtils {
     var referenceId = 0L //分配的下载Id
 
     val localFileDir = "update"
-    val localFileName = "com.hyt.cupcake0.apk" //具体安装包
+    val localFileName = "com.hyt.weather.apk"     //具体安装包
     //apk下载绝对路径
-    val apkPathUrl = "/storage/emulated/0/Android/data/com.hyt.cupcake/files/update/com.hyt.cupcake0.apk"
+    val apkPathUrl = "/storage/emulated/0/Android/data/com.shijing.weather/files/update/com.hyt.weather.apk"
 
 
     /**

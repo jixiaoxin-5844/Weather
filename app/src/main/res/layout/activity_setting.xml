@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/setTing_Title" />
 
     <com.july.viewlibrary.customView.viewGroup.SpecificBtn0
-        android:id="@+id/settingAbout"
+        android:id="@+id/settingUpdate"
         android:layout_marginTop="@dimen/qb_px_24"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         app:btnText="@string/cityName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingAbout" />
+        app:layout_constraintTop_toBottomOf="@+id/settingUpdate" />
 
 
 

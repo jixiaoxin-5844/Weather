@@ -59,12 +59,19 @@ android {
             buildConfigField "String", "WeatherKey", properties.getProperty("HeFeng_Key")
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
             // shrinkResources true//打开资源压缩 ->未测试
             signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "OssBasePath", properties.getProperty("OssBasePath")
             buildConfigField "String", "WeatherKey", properties.getProperty("HeFeng_Key")
+
+            // 修改打包输出的文件名
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "weather-${defaultConfig.versionName}_${defaultConfig.versionCode}_${variant.productFlavors[0].name}.apk"
+                }
+            }
         }
     }
 

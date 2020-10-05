@@ -22,6 +22,8 @@ import kotlinx.coroutines.launch
  */
 class MainViewModel : ViewModel() {
 
+    private val weatherKey = BuildConfig.WeatherKey
+
     private val weatherApi = RetrofitUtils.getHttp(BaseAction.WeatherPath)
         .create(WeatherService::class.java)
 
@@ -36,6 +38,7 @@ class MainViewModel : ViewModel() {
     var cityName =  MutableLiveData(WeatherDataKv.getCityName())
     var locationId = MutableLiveData(WeatherDataKv.getLocationId())
 
+
     /**
      *  获取实时天气并转换为对应的 bean
      *  @param location 要查询的城市
@@ -43,7 +46,7 @@ class MainViewModel : ViewModel() {
     fun getNowData(location: String = "101010100") {
         viewModelScope.launch(Dispatchers.IO) {
             val weatherNowBean =
-                async { weatherApi.getNow(location, BuildConfig.WeatherKey) }
+                async { weatherApi.getNow(location,weatherKey ) }
             val bean = weatherNowBean.await()
 
             val nowBean = NowBean(
@@ -64,7 +67,7 @@ class MainViewModel : ViewModel() {
     fun getDailyData(location: String = "101010100") {
         viewModelScope.launch(Dispatchers.IO) {
             val weatherDailyBean =
-                async { weatherApi.getDaily(location, BuildConfig.WeatherKey) }
+                async { weatherApi.getDaily(location, weatherKey) }
             val bean = weatherDailyBean.await()
 
             val daily = bean.daily?.get(0)
@@ -87,7 +90,7 @@ class MainViewModel : ViewModel() {
     fun getHourlyData(location: String = "101010100") {
         viewModelScope.launch(Dispatchers.IO) {
             val weatherHourlyBean =
-                async { weatherApi.getHourly(location, BuildConfig.WeatherKey) }
+                async { weatherApi.getHourly(location, weatherKey) }
             val bean = weatherHourlyBean.await()
             //需要的数据是第 0  3   6   9   12
             val listOf = listOf(0, 3, 6, 9, 12)
@@ -107,7 +110,7 @@ class MainViewModel : ViewModel() {
     fun getSevenDaily(location: String = "101010100") {
         viewModelScope.launch(Dispatchers.IO) {
             val weatherDailyBean =
-                async { weatherApi.getSevenDaily(location, BuildConfig.WeatherKey) }
+                async { weatherApi.getSevenDaily(location, weatherKey) }
             val bean = weatherDailyBean.await()
             val daily = bean.daily
             if (daily != null) {
@@ -122,7 +125,7 @@ class MainViewModel : ViewModel() {
     fun getLocationInfo(location: String = "beijing") {
         viewModelScope.launch(Dispatchers.IO) {
             val cityInfoBean =
-                async { locationApi.getLocationId(location, BuildConfig.WeatherKey) }
+                async { locationApi.getLocationId(location, weatherKey) }
             val bean = cityInfoBean.await()
             bean.location?.get(0).let {
                 val id = it?.id
